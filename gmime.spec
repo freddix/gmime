@@ -2,17 +2,17 @@
 
 Summary:	GMIME library
 Name:		gmime
-Version:	2.6.15
-Release:	1
+Version:	2.6.16
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.gnome.org/sources/gmime/2.6/%{name}-%{version}.tar.xz
-# Source0-md5:	a139ee5870ec4c0bf28fcff8ac0af444
+# Source0-md5:	05c365dd1c4fd3617ec9c68f134075f1
 Patch0:		%{name}-link.patch
 URL:		http://spruce.sourceforge.net/gmime/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib-devel
+BuildRequires:	gobject-introspection-devel
 BuildRequires:	libtool
 BuildRequires:	pkg-config
 BuildRequires:	zlib-devel
@@ -75,12 +75,16 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %ghost %{_libdir}/libgmime-*.so.?
 %attr(755,root,root) %{_libdir}/libgmime-%{apiver}.so.*.*.*
+%{_libdir}/girepository-1.0/GMime-%{apiver}.typelib
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgmime-%{apiver}.so
 %{_pkgconfigdir}/gmime-%{apiver}.pc
 %{_includedir}/gmime-%{apiver}
+%{_datadir}/gir-1.0/GMime-%{apiver}.gir
+%{_datadir}/vala/vapi/*.deps
+%{_datadir}/vala/vapi/*.vapi
 
 %files apidocs
 %defattr(644,root,root,755)
