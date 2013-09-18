@@ -2,12 +2,12 @@
 
 Summary:	GMIME library
 Name:		gmime
-Version:	2.6.17
+Version:	2.6.18
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.gnome.org/sources/gmime/2.6/%{name}-%{version}.tar.xz
-# Source0-md5:	20844d957c88d23217ee79b8f6caf99a
+# Source0-md5:	0495f54779cd2813efc3326ffd63f02f
 Patch0:		%{name}-link.patch
 URL:		http://spruce.sourceforge.net/gmime/
 BuildRequires:	autoconf
