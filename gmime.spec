@@ -3,7 +3,7 @@
 Summary:	GMIME library
 Name:		gmime
 Version:	2.6.20
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.gnome.org/sources/gmime/2.6/%{name}-%{version}.tar.xz
@@ -51,6 +51,7 @@ cp /usr/share/gettext/config.rpath .
 %{__automake}
 %configure \
 	--disable-mono		\
+	--disable-silent-rules	\
 	--disable-static	\
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
@@ -62,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	HTML_DIR=%{_gtkdocdir}
 
-rm -f $RPM_BUILD_ROOT%{_bindir}/uu{de,en}code
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
